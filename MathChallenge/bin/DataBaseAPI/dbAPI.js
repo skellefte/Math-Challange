@@ -15,14 +15,18 @@ var authenticationVariables = {
 };
 
 DBCommands.initMongoDBConnection();
-movies.printAvatar();
-movies.printChappie();
+//movies.printAvatar();
+//movies.printChappie();
 //initMongoDBConnection();
-DBCommands.getUsernameAndPasswordFromDB()
+var returnvalue="";
+DBCommands.getUsernameAndPasswordFromDB(authenticationVariables, function(data)
+{
+    returnvalue=data;
+    console.log(returnvalue);
+});
 console.log("Running dbAPI");
-
 //DBCommands.addUserToQueue("pelle", 1300);
-DBCommands.removeUserFromQueue("pelle");
+//DBCommands.removeUserFromQueue("pelle");
 
 
 
@@ -60,7 +64,7 @@ var userRegisterDocument=
 };
 
 
-isUserAuthenticated(authenticationVariables);
+//isUserAuthenticated(authenticationVariables);
 
 
 

@@ -17,8 +17,9 @@ module.exports = {
         console.log('init mongodb connection.');
     },
 
-    getUsernameAndPasswordFromDB : function(authenticationVariables) {
-        MongoClient.connect(url, function (err, db) {
+    getUsernameAndPasswordFromDB : function(authenticationVariables, callback) {
+        MongoClient.connect(url, function (err, db)
+        {
             if (err) {
                 console.log('Unable to connect to the mongoDB server. Error:', err);
             } else {
@@ -45,7 +46,9 @@ module.exports = {
                         console.log('No document(s) found with defined "find" criteria!');
                     }
                     //Close connection
+                    callback(result[0]);
                     db.close();
+
                 });
             }
         });
