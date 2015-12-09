@@ -6,7 +6,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var sess = require('./session');
 
 
 
@@ -18,6 +17,7 @@ var search = require('./routes/search');
 var game = require('./routes/game');
 var changePass = require('./routes/changePass');
 var register = require('./routes/register');
+var results = require('./routes/results');
 ///////ROUTE//////////
 
 var app = express();
@@ -49,6 +49,7 @@ app.use('/search', search);
 app.use('/game', game);
 app.use('/changePass', changePass);
 app.use('/register', register);
+app.use('/results', results);
 ///////ROUTE//////////
 
 ///////SESSIONS////////

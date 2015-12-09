@@ -22,7 +22,7 @@ router.post('/', function(req, res) {
     case "Register":
       res.redirect('/register');
       break;
-    case "Login":
+    case "main":
       res.redirect('/main');
       break;
 

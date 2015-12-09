@@ -5,7 +5,7 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 
-/* GET home page. (search.ejs) */
+/* GET home page. (changePass.ejs) */
 router.get('/', function(req, res, next) {
     res.render('changePass', { title: 'Math Challenge' });
 });

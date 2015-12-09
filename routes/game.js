@@ -5,14 +5,17 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 
-var k = ['4*5', '5*10', '2*2'];
-//var s = [20, 50, 4];
-//var p = 0;
-/* GET home page. (search.ejs) */
+var Uppgifter = ['4*5', '5*10', '2*2'];
+var Svar = [20, 50, 4];
+var Index = 0;
+var resultList = [];
+var tempList = [];
+/* GET home page. (game.ejs) */
 router.get('/', function(req, res, next) {
     res.render('game', {
         title: 'Math Challenge',
-        Equation: k[p]
+        Equation: Uppgifter[Index],
+        Answer: resultList
     });
 
 });
@@ -21,11 +24,10 @@ var n = "";
 router.post('/', function(req, res) {
 
     var buttonPress = req.body.inputNUM;
-    var k = "45";
 
 
-    console.log(buttonPress);
-    //TODO: Försöka att hitta ett sett att printa ut i browsern
+    //console.log(buttonPress);
+
     switch (buttonPress)
     {
         case "1":
@@ -55,18 +57,67 @@ router.post('/', function(req, res) {
         case "9":
             n = n + "9";
             break;
+        case "0":
+            n = n + "0";
+            break;
         case "OK":
-            if (n == k)
+
+            //TODO: Spara Rätt eller fel, uppgiftID resultat och skicka vidare till result-sidan
+            if (n == Svar[Index])
             {
+                //resultList[n] = {
+                //    result : 0,
+                //    questionID : id,
+                // };
+
+                resultList[Index] = "Rätt";
+
+                console.log("---------------");
                 console.log("Correct answer!");
+                console.log("---------------");
                 n = "";
-                //TODO: Anropa nästa fråga
+
+
+                if (Index < 2) {
+                    Index = Index + 1;
+                    res.render('game', {
+                        title: 'Math Challenge',
+                        Equation: Uppgifter[Index],
+                        Answer: resultList
+                    });
+                }
+                else
+                {
+                    tempList = resultList;
+                    resultList = [];
+                    Index = 0;
+                    res.redirect('/results');
+                }
             }
+
             else
             {
+                resultList[Index] = "Fel";
+
+                console.log("-----------------");
                 console.log("Incorrect answer!");
+                console.log("-----------------");
                 n= "";
-                //TODO: Anropa nästa fråga
+                if (Index < 2){
+                    Index = Index + 1;
+                    res.render('game', {
+                        title: 'Math Challenge',
+                        Equation: Uppgifter[Index],
+                        Answer: resultList
+                    });
+                }
+                else
+                {
+                    tempList = resultList;
+                    resultList = [];
+                    Index = 0;
+                    res.redirect('/results');
+                }
             }
             break;
         case "<--":
