@@ -4,7 +4,7 @@
     <option name="serverConfigurations">
       <list>
         <ServerConfiguration>
-          <option name="label" value="Localhost" />
+          <option name="label" value="mongodDB" />
           <option name="serverUrls">
             <list>
               <option value="localhost:27017" />
@@ -13,6 +13,6 @@
         </ServerConfiguration>
       </list>
     </option>
-    <option name="shellPath" value="C:\Program Files\MongoDB\Server\3.0\bin\mongo.exe" />
+    <option name="shellPath" value="C:\Program Files\MongoDB\Server\3.0\bin\mongod.exe" />
   </component>
 </project>
