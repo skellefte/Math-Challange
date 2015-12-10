@@ -19,8 +19,6 @@ var authenticationVariables = {
 DBCommands.initMongoDBConnection();
 console.log("Running dbAPI");
 
-var difficult= "easy";
-
 
 /*
 DBCommands.getQuestionIndexes(function(data){
@@ -28,8 +26,12 @@ DBCommands.getQuestionIndexes(function(data){
     DBCommands.getQuestionStream(difficult, indexes, function(data) {
         questions=data;
     });
-});
-*/
+});*/
+/*
+getQuestionStream("easy",function(data){
+    console.log(data);
+});*/
+
 
 function insertUser(userReqisterDocument) {
     //TODO Check if userRegisterDocument is valid only valid symbols permitted.
@@ -43,8 +45,7 @@ function insertUser(userReqisterDocument) {
     };
 }
 module.exports = {
-    AuthenticateUser :function(authenticationVariables, callback)
-{
+    AuthenticateUser :function(authenticationVariables, callback) {
     //TODO Check if authenticationDocument is valid only valid symbols permitted.
 
     DBCommands.getUsernameAndPasswordFromDB(authenticationVariables, function(data)
@@ -64,34 +65,19 @@ module.exports = {
         }
 
     });
-}
-};
-//AuthenticateUser(authenticationVariables);
+    },
 
-//  User Authentication function without export module
-/*function AuthenticateUser(authenticationVariables)
-{
-    //TODO Check if authenticationDocument is valid, only valid symbols permitted.
-
-    DBCommands.getUsernameAndPasswordFromDB(authenticationVariables, function(data)
-    {
-        returnvalue=data;
-        if(JSON.stringify(authenticationVariables)===JSON.stringify(returnvalue)){
-            console.log("hai welcome to da homepage");
-            //set loginSession to true
-            //example Session[kalle]=true
-        }
-        else
-        {
-            console.log("wrong username or password");
-            //wrong password or username -> redirect to login-page
-        }
-
+    getQuestionStream :function (difficult, callback){
+    DBCommands.getQuestionIndexes(function(data){
+        var indexes=data;
+        DBCommands.getQuestionStream(difficult, indexes, function(data) {
+            var questions=data;
+            callback(questions);
+        });
     });
-}*/
+}
 
-
-
+};
 
 var userRegisterDocument=
 {

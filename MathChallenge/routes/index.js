@@ -36,9 +36,9 @@ router.post('/', function(req, res) {
          "username": User.email,
          "password" : User.Password
          };
-        console.log(authenticationVariables);
         var dbAPI = require('../bin/dbAPI.js');
         dbAPI.AuthenticateUser(authenticationVariables, function (data){
+
             if(typeof data === 'undefined')
             {
                 console.log("Invalid username or password!");

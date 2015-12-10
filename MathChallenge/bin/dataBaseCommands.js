@@ -145,12 +145,7 @@ module.exports = {
                 //Close connection
 
                 db.close();
-
             });
-            /*collection.find(
-                statement,  function(err, results) {
-                }
-            );*/
         }
     });
     },

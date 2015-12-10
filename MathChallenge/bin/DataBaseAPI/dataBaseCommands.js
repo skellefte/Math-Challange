@@ -14,7 +14,6 @@ module.exports = {
         assert = require('assert');
         ObjectId = require('mongodb').ObjectID;
         url = 'mongodb://localhost:27017/mathchallange';
-        console.log('init mongodb connection.');
     },
 
     getUsernameAndPasswordFromDB : function(authenticationVariables, callback) {
@@ -146,12 +145,7 @@ module.exports = {
                 //Close connection
 
                 db.close();
-
             });
-            collection.find(
-                statement,  function(err, results) {
-                }
-            );
         }
     });
     },
@@ -174,9 +168,6 @@ module.exports = {
         });
     });
 }
-
-
-
 
 };
 
