@@ -1,2 +1,0 @@
-# Math-Challange
-A game where you can challange a friend or anyone around the world. The game consists of small math problems, where mental arithmetic is reqiured. When two people is challanging each other, a number of questions is given to each player. The person with the highest score, based on number of correct answers in a shorter time wins the duel and retrieves a higher score. The personal score is shared in the community. The challanges may be picked by current rank, friends or your current location.
