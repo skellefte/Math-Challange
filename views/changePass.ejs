@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="icon" href="images/pi.ico">
+
+    <title>Register</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="jumbotron text-center" >
+        <h1>Math Challenge</h1>
+        <p class="italic">"Test your mental calculation"</p>
+    </div>
+</div>
+
+<div class="container">
+
+
+    <form class="form-signin" method="POST">
+        <h2 class="form-signin-heading">Registrate</h2>
+
+        <label for="oldpassword" class="sr-only">Email address</label>
+        <input type="password" name="oldpassword" class="form-control" placeholder="Old password" required autofocus>
+
+        <label for="newPassword" class="sr-only">Password</label>
+        <input type="Password" name="newPassword" class="form-control" placeholder="New password" required>
+
+        <label for="ReNewpassword" class="sr-only">Password</label>
+        <input type="password" name="ReNewpassword" class="form-control" placeholder="Re new password" required>
+
+        <input type="submit" name="submitForm" value="Change Password" class="btn btn-lg btn-primary btn-block" >
+    </form>
+
+</div>
+</body>
+</html>

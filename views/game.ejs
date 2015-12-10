@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- **** -->
+    <link rel="icon" href="images/pi.jpg">
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/game.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <!--link href="stylesheets/signin.css" rel="stylesheet "-->
+
+
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/gameStyle.css' />
+
+</head>
+<body>
+<body>
+<div class="container">
+    <div class="text_center" >
+        <h1><%= title %></h1>
+        <p class="italic">"Test your mental calculation"</p>
+    </div>
+</div>
+
+<div class="container">
+    <form class="form-signin" id="loginformA" method="post" >
+    <div class="boxed">
+        <%= Equation %>
+    </div>
+
+    <h2 class="form-signin-heading">Game</h2>
+
+    <div class="rowOne">
+        <form class="form-signin" id="loginformA" method="post" >
+            <input type="submit"  name="inputNUM" class="myButton" value="1" required>
+            <input type="submit"  name="inputNUM" class="myButton" value="2" required>
+            <input type="submit"  name="inputNUM" class="myButton" value="3" required>
+        </form>
+    </div>
+
+    <div class="rowTwo">
+        <form class="form-signin" id="loginformA" method="post" >
+            <input type="submit"  name="inputNUM" class="myButton" value="4" required>
+            <input type="submit"  name="inputNUM" class="myButton" value="5" required>
+            <input type="submit"  name="inputNUM" class="myButton" value="6" required>
+        </form>
+    </div>
+    <div class="rowFour">
+        <form class="form-signin" id="loginformA" method="post" >
+            <input type="submit"  name="inputNUM" class="myButton" value="7" required>
+            <input type="submit"  name="inputNUM" class="myButton" value="8" required>
+            <input type="submit"  name="inputNUM" class="myButton" value="9" required>
+        </form>
+    </div>
+    <div class="rowFive">
+        <form class="form-signin" id="loginformA" method="post" >
+            <input type="submit"  name="inputNUM" class="myButton" value="<--" required>
+            <input type="submit"  name="inputNUM" class="myButton" value="0" required>
+            <input type="submit"  name="inputNUM" class="myButton" value="OK" required>
+        </form>
+    </div>
+    </form>
+</div>
+
+</body>
+</html>
