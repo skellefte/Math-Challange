@@ -1,11 +1,19 @@
+
+
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
-var sess = require('../session')
 
 /* GET home page. (index.ejs) */
+
+//LOGIN-PAGE
+
 router.get('/', function(req, res, next) {
-  sess.session();
+    console.log(req.session.email);
+    if(req.session.email)
+    {
+        res.redirect('/main');
+    }
   res.render('index', { title: 'Math Challenge' });
 });
 
@@ -22,27 +30,36 @@ router.post('/', function(req, res) {
     case "Register":
       res.redirect('/register');
       break;
-    case "main":
-      res.redirect('/main');
-      break;
+    case "Login":
 
+         var authenticationVariables = {
+         "username": User.email,
+         "password" : User.Password
+         };
+        var dbAPI = require('../bin/dbAPI.js');
+        dbAPI.AuthenticateUser(authenticationVariables, function (data){
+
+            if(typeof data === 'undefined')
+            {
+                console.log("Invalid username or password!");
+            }
+            else if(User.email == data.username && User.Password == data.password)
+            {
+                req.session.email=data.username;
+                console.log("Login success!");
+                res.redirect('/main');
+
+
+            }
+            else
+            {
+                console.log("Invalid username or password!");
+            }
+
+
+
+        });
   }
-
-  /*if(User.email == "hej" && User.Password == "hej1")
-  {
-
-    console.log("Login success!");
-    res.redirect('/main');
-
-
-  }
-  else
-  {
-    console.log("Login failed!");
-    res.redirect('/');
-  }*/
-
-
 });
 
 
